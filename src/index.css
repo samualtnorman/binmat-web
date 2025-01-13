@@ -1,0 +1,21 @@
+:root { font-size: clamp(16px, 3vw, 20px) }
+@font-face { font-family: WhiteRabbit; src: local(WhiteRabbit), url(assets/whiterabbit.woff2); font-display: swap }
+*, *::before, *::after { box-sizing: border-box }
+
+html, body { height: 100vh; overflow: hidden }
+
+@keyframes background-position-y {
+	0% { background-position-y: 0 }
+	100% { background-position-y: 6px }
+}
+
+body {
+	display: block;
+	margin: 0;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	background-image: repeating-linear-gradient(rgb(14,14,14) 0px,rgb(20,20,28),rgb(14,14,14) 6px);
+	background-attachment: fixed;
+	animation: background-position-y .5s linear infinite;
+	position: relative
+}
