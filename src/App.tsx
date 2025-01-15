@@ -49,10 +49,12 @@ export function App() {
 
 	const [ getInnerWidth, setInnerWidth ] = createSignal(innerWidth)
 	const [ getInnerHeight, setInnerHeight ] = createSignal(innerHeight)
-	
-	addEventListener(`resize`, () => setInnerWidth(innerWidth))
-	addEventListener(`resize`, () => setInnerHeight(innerHeight))
-	
+
+	addEventListener(`resize`, () => {
+		setInnerWidth(innerWidth)
+		setInnerHeight(innerHeight)
+	})
+
 	return <>
 		<For each={shuffle([ ...Cards ])}>
 			{card => {
