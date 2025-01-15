@@ -28,13 +28,13 @@ export function App() {
 			setClientY(clientY => clientY)
 		}, 150)
 	}
-	
+
 	addEventListener(`mousemove`, event => {
 		resetTimeout()
 		setClientX(event.clientX)
 		setClientY(event.clientY)
 	})
-	
+
 	addEventListener(`touchmove`, event => {
 		resetTimeout()
 		setClientX(event.touches[0].clientX)
@@ -57,7 +57,7 @@ export function App() {
 		<For each={shuffle([ ...Cards ])}>
 			{card => {
 				const [ getDragging, setDragging ] = createSignal(false)
-				
+
 				const getLeft = createMemo((previous: { offset: number, difference: number, idle: boolean }) => {
 					if (getDragging()) {
 						const offset = getClientX() / getInnerWidth()
@@ -83,7 +83,7 @@ export function App() {
 
 					return { offset: previous.offset, difference: 0, idle: true }
 				}, { offset: Math.random(), difference: 0, idle: true })
-				
+
 				return <div style={{
 					position: `absolute`,
 					perspective: `600px`,
