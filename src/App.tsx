@@ -41,12 +41,6 @@ export function App() {
 		setClientY(event.touches[0].clientY)
 	})
 
-	addEventListener(`touchstart`, event => {
-		resetTimeout()
-		setClientX(event.touches[0].clientX)
-		setClientY(event.touches[0].clientY)
-	})
-
 	const [ getInnerWidth, setInnerWidth ] = createSignal(innerWidth)
 	const [ getInnerHeight, setInnerHeight ] = createSignal(innerHeight)
 
@@ -124,7 +118,9 @@ export function App() {
 							resetTimeout()
 							setDragging(true)
 						}}
-						onTouchStart={() => {
+						onTouchStart={event => {
+							setClientX(event.touches[0].clientX)
+							setClientY(event.touches[0].clientY)
 							resetTimeout()
 							setDragging(true)
 						}}
